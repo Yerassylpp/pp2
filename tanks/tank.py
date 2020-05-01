@@ -143,8 +143,8 @@ def tank_life():
     screen.blit(text2, place2)
 
 def game_over():
-    if int(tank1.life<=0) or int(tank2.life<=0):
-            game_over=pygame.image.load('gameover.jpg')
+    if int(tank1.life<=0):
+            game_over=pygame.image.load('gameover2.jpg')
             gameover = True 
             for tank in tanks:
                 tank.speed = 0
@@ -153,6 +153,16 @@ def game_over():
                 tank2.x = 800
                 tank2.y = 600                   
             screen.blit(game_over, (0,0)) 
+    if int(tank2.life<=0):
+            game_over=pygame.image.load('gameover1.jpg')
+            gameover = True 
+            for tank in tanks:
+                tank.speed = 0
+                tank1.x = 0
+                tank1.y = 0
+                tank2.x = 800
+                tank2.y = 600                   
+            screen.blit(game_over, (0,0))     
     pygame.display.flip()       
 
 eleft = pygame.image.load("eleft.png")
